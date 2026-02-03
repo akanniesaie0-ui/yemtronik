@@ -469,7 +469,7 @@
                         </div>
                         <div class="flex-1">
                             <h3 class="font-bold text-lg mb-1">WhatsApp</h3>
-                            <p class="text-gray-600" id="contactWhatsApp">+225 01 23 45 67 89</p>
+                            <p class="text-gray-600" id="contactWhatsApp">2290161304807</p>
                             <p class="text-sm text-green-600 mt-1">Réponse rapide garantie</p>
                         </div>
                         <button onclick="openWhatsApp()" class="bg-green-500 text-white px-4 py-2 rounded-lg hover:bg-green-600 transition">
@@ -483,7 +483,7 @@
                         </div>
                         <div class="flex-1">
                             <h3 class="font-bold text-lg mb-1">Téléphone</h3>
-                            <p class="text-gray-600" id="contactPhone">+225 01 23 45 67 89</p>
+                            <p class="text-gray-600" id="contactPhone">+229 0161304807</p>
                             <p class="text-sm text-blue-600 mt-1">Lun-Sam, 8h-18h</p>
                         </div>
                         <a href="#" id="telLink" class="bg-blue-500 text-white px-4 py-2 rounded-lg hover:bg-blue-600 transition">
@@ -497,8 +497,8 @@
                         </div>
                         <div class="flex-1">
                             <h3 class="font-bold text-lg mb-1">Adresse</h3>
-                            <p class="text-gray-600" id="contactAddress">Rue des Jardins, Cocody</p>
-                            <p class="text-gray-500" id="contactCity">Abidjan, Côte d'Ivoire</p>
+                            <p class="text-gray-600" id="contactAddress">M/BAMIGBADE, Agblangandan</p>
+                            <p class="text-gray-500" id="contactCity">Cotonou, Bénin</p>
                         </div>
                     </div>
                     
@@ -551,6 +551,61 @@
     </section>
 
     <!-- SECTION ADMIN -->
+    <!-- Password Modal for Admin -->
+<div id="passwordModal" class="fixed inset-0 modal-backdrop z-[5000] flex items-center justify-center p-4 hidden">
+    <div class="bg-white rounded-2xl max-w-md w-full p-8 shadow-2xl">
+        <div class="text-center mb-6">
+            <div class="w-16 h-16 bg-gradient-to-br from-cyan-500 to-blue-600 rounded-full flex items-center justify-center mx-auto mb-4">
+                <i class="fas fa-lock text-white text-2xl"></i>
+            </div>
+            <h3 class="text-2xl font-bold text-slate-800">Espace Administrateur</h3>
+            <p class="text-slate-500 mt-2">Entrez le mot de passe pour continuer</p>
+        </div>
+
+        <input type="password" id="adminPassword"
+               class="w-full p-3 border rounded-lg mb-4"
+               placeholder="Mot de passe">
+
+        <button onclick="checkPassword()"
+                class="w-full btn-primary text-white py-3 rounded-lg">
+            Se connecter
+        </button>
+
+        <p id="errorMsg" class="text-red-500 text-center mt-3 hidden">
+            Mot de passe incorrect
+        </p>
+    </div>
+</div>
+    <script>
+function openAdmin() {
+    document.getElementById("passwordModal").classList.remove("hidden");
+}
+
+function checkPassword() {
+    const pass = document.getElementById("adminPassword").value;
+
+    // ICI tu définis TON mot de passe
+    const correctPassword = "AKANNIjean2000";
+
+    if(pass === correctPassword) {
+        document.getElementById("passwordModal").classList.add("hidden");
+        document.getElementById("adminArea").classList.remove("hidden");
+    } else {
+        document.getElementById("errorMsg").classList.remove("hidden");
+    }
+}
+</script>
+    <div id="adminArea" class="hidden p-6 bg-white shadow-lg rounded-xl m-6">
+    <h2 class="text-xl font-bold mb-4">Tableau de bord Administrateur</h2>
+
+    <p>Bienvenue dans l’espace de gestion de YEMTRONIK</p>
+
+    <ul class="mt-4 list-disc ml-6">
+        <li>Gérer les produits</li>
+        <li>Voir les commandes</li>
+        <li>Modifier les informations du site</li>
+    </ul>
+</div>
     <section id="admin" class="section-content hidden">
         <div class="flex flex-col md:flex-row min-h-screen">
             <!-- Sidebar -->
@@ -1992,4 +2047,5 @@
     </script>
 </body>
 </html>
+
 
